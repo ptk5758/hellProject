@@ -12,24 +12,23 @@ import com.ptk.domain.WeightVO;
 import com.ptk.persistence.WeightDAO;
 
 @Controller
-public class MainController {
+public class BMIController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BMIController.class);
 	
 	@Inject
 	private WeightDAO dao;
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	@RequestMapping(value = "/BMI", method = RequestMethod.GET)
 	public String mainPage() {
-		return "/main";
+		return "/BMI";
 	}
 	
-	@RequestMapping(value = "/main", method = RequestMethod.POST)
-	public String mainPageTEST(WeightVO vo) {
-		
-		logger.info(vo.toString());
-		dao.insertWeight(vo);
-		return "/main";
+	@RequestMapping(value = "/BMI/list", method = RequestMethod.GET)
+	public String bmilistPage() {
+		return "/BMIlist";
 	}
+	
+	
 
 }

@@ -10,12 +10,12 @@
 </head>
 <body>
 	<header>
-		<div onclick="location.href='/main'">로고</div>
+		<div onclick="location.href='/BMI'">로고</div>
 		<div>로그인</div>
 	</header>
 	<nav>
-		<div onclick="location.href='/main'">BMI 측정하러가기</div>
-		<div>다른사람 최근측정</div>
+		<div onclick="location.href='/BMI'">BMI 측정하러가기</div>
+		<div onclick="location.href='/BMI/list'">다른사람 최근측정</div>
 		<div>3번</div>
 		<div>4번</div>
 		<div>5번</div>

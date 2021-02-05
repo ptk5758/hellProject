@@ -2,5 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-	<h1>한영합니다</h1>
+	<link rel="stylesheet" type="text/css" href="/css/bmi.css?ver=1">
+	<div class="bmiList">dsff</div>
+	<script src="/js/bmi/bmilistPage.js?ver=1"></script>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

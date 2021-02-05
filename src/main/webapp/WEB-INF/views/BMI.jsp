@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
+<link rel="stylesheet" type="text/css" href="/css/bmi.css?ver=1">
 	<form class="MainBoard" id="userForm">
 		<div class="Main_Item">
 			<div class="Main_Item_Text">성별</div>
@@ -28,5 +29,5 @@
 		<div id="resultBoard" style="opacity: 0"></div>
 	</form>
 	
-<script src="/js/WeightManager.js?ver=1"></script>
+<script src="/js/bmi/WeightManager.js?ver=1"></script>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
