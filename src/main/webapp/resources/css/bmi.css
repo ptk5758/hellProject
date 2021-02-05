@@ -6,11 +6,11 @@
 	margin: 0 auto;
 	border: 2px solid#eee;
 	background-color: #fff;
-	height: 800px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 15px;
+	padding-bottom: 80px;
 }
 .Main_Item{
 	display: flex;
@@ -100,6 +100,7 @@
 	border: 1px solid#000000;
 	padding: 0.5em;
 	font-size: 20px;
+	margin: 0.4em;
 }
 .toplist{
 	padding: 0.8em;
@@ -112,22 +113,29 @@
 	text-align: center;
 }
 .bmi_list_num{
+	font-weight: bold;
 	width: 5%;
 }
 .bmi_list_height{
-	width: 10%;
+	width: 8%;
 }
 .bmi_list_weight{
-	width: 10%;
+	width: 8%;
+}
+.bmi_list_age{
+	width: 5%;
+}
+.bmi_list_gender{
+	width: 5%;
 }
 .bmi_list_BMI{
-	width: 15%;
+	width: 10%;
 }
 .bmi_list_answer{
 	width: 10%;
 }
 .bmi_list_date{
-	width: 25%;
+	width: 15%;
 }
 .bmi_list_user{
 	width: 15%;

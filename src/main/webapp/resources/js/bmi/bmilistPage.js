@@ -26,6 +26,8 @@
 				<div class="bmi_list_num bmi_top">Num</div>
 				<div class="bmi_list_height bmi_top">키</div>
 				<div class="bmi_list_weight bmi_top">몸무게</div>
+				<div class="bmi_list_age bmi_top">나이</div>
+				<div class="bmi_list_gender bmi_top">성별</div>
 				<div class="bmi_list_BMI bmi_top">BMI</div>
 				<div class="bmi_list_answer bmi_top">결과</div>
 				<div class="bmi_list_date bmi_top">날짜</div>
@@ -38,9 +40,11 @@
 						<div class="bmi_list_num">${listcount}</div>
 						<div class="bmi_list_height">${data.height}</div>
 						<div class="bmi_list_weight">${data.weight}</div>
+						<div class="bmi_list_age">${data.age}</div>
+						<div class="bmi_list_gender">${data.gender}</div>
 						<div class="bmi_list_BMI">${data.bmi}</div>
 						<div class="bmi_list_answer">${data.bmi_status}</div>
-						<div class="bmi_list_date">${data.stringdate}</div>
+						<div class="bmi_list_date">${data.uploadDate}</div>
 						<div class="bmi_list_user">게스트</div>
 					</div>
 				`;

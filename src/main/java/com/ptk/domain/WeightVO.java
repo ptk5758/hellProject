@@ -15,7 +15,6 @@ public class WeightVO {
 	private Date uploadDate;
 	private String stringdate;
 	private String user;
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	@Override
 	public String toString() {
@@ -29,7 +28,6 @@ public class WeightVO {
 		result += "\"bmi_status\":\""+this.bmi_status+"\",";
 		result += "\"gender\":\""+this.gender+"\",";
 		result += "\"uploadDate\":\""+this.uploadDate+"\",";
-		result += "\"stringdate\":\""+sdf.format(this.uploadDate)+"\",";
 		result += "\"user\":\""+this.user+"\",";
 		result += "\"ip\":\""+this.ip+"\"";
 		result += "}";

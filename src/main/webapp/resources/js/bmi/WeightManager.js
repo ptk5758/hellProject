@@ -20,7 +20,7 @@
 			}
 		}
 		
-		let data = {weight:weight, height:height, age:age, gender:gender}
+		let data = {weight:weight, height:height, age:age, gender:gender, user:sessionStorage.getItem("sessionNickName") == null ? "게스트":'sessionStorage.getItem("sessionNickName")'}
 		
 		let xhp = new XMLHttpRequest();
 		xhp.open("POST", "/apiWeight/insertWeight", true);
@@ -67,7 +67,6 @@
 				}
 				document.getElementById('answer').style.color = answercolor;
 				document.getElementById('WeightButton').style.pointerEvents = "none";
-				
 			}
 		}
 	});

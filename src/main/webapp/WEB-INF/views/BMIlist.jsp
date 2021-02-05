@@ -4,17 +4,28 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 	<link rel="stylesheet" type="text/css" href="/css/bmi.css?ver=1">
 	<div class="bmiList">
-		<div class="bmi_option">(대충 검색하는 인터페이스)</div>
-		<div class="bmi_list_board" id="bmiboard">
-			<div class="bmi_list_item">
-				<div class="bmi_list_num">Num</div>
-				<div class="bmi_list_height">키</div>
-				<div class="bmi_list_weight">몸무게</div>
-				<div class="bmi_list_BMI">BMI</div>
-				<div class="bmi_list_answer">결과</div>
-				<div class="bmi_list_date">날짜</div>
-				<div class="bmi_list_user">유저</div>
+		<div class="bmi_option">
+			<div class="bmi_option_title">검색</div>
+			<div class="bmi_option_board">
+				<div>보기</div>
+				<div>
+					<select>
+						<option>10</option>
+						<option>20</option>
+					</select>
+				</div>
+				<div>
+					<select>
+						<option>비만</option>
+						<option>과체중</option>
+						<option>정상</option>
+						<option>저체중</option>
+					</select>
+				</div>
 			</div>
+		</div>
+		<div class="bmi_list_board" id="bmiboard">
+			<h1>로딩중</h1>
 		</div>
 		<div class="bmi_page">(대충 페이징)</div>
 	</div>

@@ -30,7 +30,7 @@ public class APIWeight {
 		try {
 			vo.setIp(Inet4Address.getLocalHost().getHostAddress());
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		logger.info(vo.toString());
 		double height = (vo.getHeight()/(double)100);
