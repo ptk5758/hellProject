@@ -36,6 +36,15 @@ public class APIWeight {
 		double weight = vo.getWeight();
 		double bmi = weight/(height*height);
 		vo.setBmi(Double.parseDouble(String.format("%.2f", bmi)));
+		if(vo.getBmi() <= 14.06D) {
+			vo.setBmi_status("저체중");
+		} else if (vo.getBmi() <= 19.80D){
+			vo.setBmi_status("정상");
+		} else if (vo.getBmi() <= 22.13D){
+			vo.setBmi_status("과체중");
+		} else {
+			vo.setBmi_status("비만");
+		}
 		dao.insertWeight(vo);
 		String result;
 		result = vo.toString();

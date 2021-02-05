@@ -25,7 +25,8 @@
 		<div class="Main_Item">
 			<div><button id="WeightButton">계산하기</button></div>
 		</div>
-		<div id="resultBoard"></div>
+		<div id="resultBoard" style="opacity: 0"></div>
 	</form>
+	
 <script src="/js/WeightManager.js?ver=1"></script>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

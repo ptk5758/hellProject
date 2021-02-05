@@ -4,6 +4,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ptk.mapper.WeightMapper">
 	<insert id="weightInsert">
-		insert into weight (weight,height,age,gender,ip,bmi) values (#{weight},#{height},#{age},#{gender},#{ip},#{bmi})
+		insert into weight (weight,height,age,gender,ip,bmi,bmi_status) values (#{weight},#{height},#{age},#{gender},#{ip},#{bmi},#{bmi_status})
 	</insert>
 </mapper>

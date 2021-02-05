@@ -14,8 +14,8 @@
 		<div>로그인</div>
 	</header>
 	<nav>
-		<div>1번</div>
-		<div>2번</div>
+		<div onclick="location.href='/main'">BMI 측정하러가기</div>
+		<div>다른사람 최근측정</div>
 		<div>3번</div>
 		<div>4번</div>
 		<div>5번</div>

@@ -6,6 +6,7 @@ public class WeightVO {
 	private int weight;
 	private int age;
 	private double bmi;
+	private String bmi_status;
 	private String gender;
 	private String ip;
 	
@@ -18,6 +19,7 @@ public class WeightVO {
 		result += "\"weight\":\""+this.weight+"\",";
 		result += "\"age\":\""+this.age+"\",";
 		result += "\"bmi\":\""+this.bmi+"\",";
+		result += "\"bmi_status\":\""+this.bmi_status+"\",";
 		result += "\"gender\":\""+this.gender+"\",";
 		result += "\"ip\":\""+this.ip+"\"";
 		result += "}";
@@ -71,6 +73,14 @@ public class WeightVO {
 
 	public void setBmi(double bmi) {
 		this.bmi = bmi;
+	}
+
+	public String getBmi_status() {
+		return bmi_status;
+	}
+
+	public void setBmi_status(String bmi_status) {
+		this.bmi_status = bmi_status;
 	}
 	
 	

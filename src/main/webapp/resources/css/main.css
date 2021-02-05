@@ -20,7 +20,7 @@ nav{
 	padding: 15px;
 	background-color: #c4e4fd;
 }
-/* ------------------------------메인 페이지 css영역-------------------------------------- */
+/* ------------------------------메인 페이지 css영역 (BMI체크)-------------------------------------- */
 .MainBoard{
 	width: 80%;
 	margin: 0 auto;
@@ -34,7 +34,10 @@ nav{
 }
 .Main_Item{
 	display: flex;
-	padding: 2em;
+	padding: 1.5em;
+	border: 2px solid#eee;
+	border-radius: 12px;
+	margin: 1.1em;
 }
 .genderRadio{
 	display: flex;
@@ -52,18 +55,55 @@ nav{
 	width: 300px;
 }
 .Main_Item input{
-	font-size: 22px;
+	font-size: 20px;
 	padding: 0.5em;
 }
 .Main_Item button {
 	width: 450px;
 	padding: 8px;
-	color: #fff;
+	color: #309df8;
 	background-color: #c4e4fd;
 	border: 0px solid#000000;
 	cursor: pointer;
+	font-weight: bold;
+	font-size: 22px;
+	letter-spacing: 7px;
 }
-
+#resultBoard{
+	width: 80%;
+	background-color: #eee;
+	display: flex;
+	justify-content: center;
+	padding: 1.3em;
+}
+.bmi_INFO{
+	width: 55%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+.bmi_INFO div {
+	padding: 0.3em;
+	font-weight: bold;
+}
+.bmi_INFO span {
+	width: 100px;
+}
+.bmi_Result{
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.bmi_Result_text{
+	font-size: 22px;
+	font-weight: bold;
+}
+.bmi_Result_answer{
+	font-size: 48px;
+	padding: 0.8em;
+}
 
 
 

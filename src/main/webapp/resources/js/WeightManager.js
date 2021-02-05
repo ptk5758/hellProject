@@ -32,17 +32,42 @@
 				console.log(jsonData);
 				let resultboard = document.getElementById('resultBoard');
 				let result = "";
-				result += `
-					<div>
-						<div>키 : ${jsonData.height}</div>
-						<div>몸무게 : ${jsonData.weight}</div>
-						<div>BMI : ${jsonData.bmi}</div>
-					</div>
-					<div>
-						<div>어쩌구 저쩌구입니다.</div>
-					</div>
+				result += `					
+						<div class="bmi_INFO">
+							<div class="bmi_INFO_Height">
+								<span>키</span>
+								<span>${jsonData.height}</span>
+							</div>
+							<div class="bmi_INFO_Weight">
+								<span>몸무게</span>
+								<span>${jsonData.weight}</span>
+							</div>
+							<div class="bmi_INFO_BMI">
+								<span>BMI</span>
+								<span>${jsonData.bmi_status}</span>
+							</div>
+						</div>
+						<div class="bmi_Result">
+							<div class="bmi_Result_text">결과</div>
+							<div id="answer" class="bmi_Result_answer">${jsonData.bmi_status}</div>
+							<div class="bmi_Result_comment">건강이 위험해요</div>
+						</div>
 				`;
 				resultboard.innerHTML = result;
+				resultboard.style.opacity = 1;
+				let answercolor;
+				if(jsonData.bmi_status === "비만"){
+					answercolor = "#ff0000";
+				} else if (jsonData.bmi_status === "과체중") {
+					answercolor = "#b168ee";
+				} else if (jsonData.bmi_status === "정상") {
+					answercolor = "#5cf928";
+				} else {
+					answercolor = "#fff";
+				}
+				document.getElementById('answer').style.color = answercolor;
+				document.getElementById('WeightButton').style.pointerEvents = "none";
+				
 			}
 		}
 	});
