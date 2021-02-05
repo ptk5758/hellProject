@@ -1,5 +1,8 @@
 package com.ptk.domain;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class WeightVO {
 	
 	private int height;
@@ -9,6 +12,10 @@ public class WeightVO {
 	private String bmi_status;
 	private String gender;
 	private String ip;
+	private Date uploadDate;
+	private String stringdate;
+	private String user;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	@Override
 	public String toString() {
@@ -21,10 +28,21 @@ public class WeightVO {
 		result += "\"bmi\":\""+this.bmi+"\",";
 		result += "\"bmi_status\":\""+this.bmi_status+"\",";
 		result += "\"gender\":\""+this.gender+"\",";
+		result += "\"uploadDate\":\""+this.uploadDate+"\",";
+		result += "\"stringdate\":\""+sdf.format(this.uploadDate)+"\",";
+		result += "\"user\":\""+this.user+"\",";
 		result += "\"ip\":\""+this.ip+"\"";
 		result += "}";
 		
 		return result;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 	public int getHeight() {
@@ -81,6 +99,22 @@ public class WeightVO {
 
 	public void setBmi_status(String bmi_status) {
 		this.bmi_status = bmi_status;
+	}
+
+	public Date getUploadDate() {
+		return uploadDate;
+	}
+
+	public void setUploadDate(Date uploadDate) {
+		this.uploadDate = uploadDate;
+	}
+
+	public String getStringdate() {
+		return stringdate;
+	}
+
+	public void setStringdate(String stringdate) {
+		this.stringdate = stringdate;
 	}
 	
 	

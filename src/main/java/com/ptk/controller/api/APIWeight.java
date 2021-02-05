@@ -2,6 +2,7 @@ package com.ptk.controller.api;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -51,5 +52,50 @@ public class APIWeight {
 		return result;
 		
 	}
+	
+	@RequestMapping(value = "/getBMIList", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public String getBMIList() {
+		String result;
+		
+		List<WeightVO> list = dao.getWeightList();
+		if(list.isEmpty()) {
+			result = "{\"count\":\"0\"}";
+		} else {
+			
+			result = "{\"count\":\""+list.size()+"\",\"list\":[";		
+			
+			for(int i=0; i<list.size(); i++) {
+				
+				WeightVO vo = list.get(i);
+				result += vo.toString();
+				
+				if(i+1 == list.size()) {
+					result += "]}";
+				} else {
+					result += ",";
+				}
+				
+			}
+		}
+		
+		return result;
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

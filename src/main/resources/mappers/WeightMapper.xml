@@ -6,4 +6,7 @@
 	<insert id="weightInsert">
 		insert into weight (weight,height,age,gender,ip,bmi,bmi_status) values (#{weight},#{height},#{age},#{gender},#{ip},#{bmi},#{bmi_status})
 	</insert>
+	<select id="getWeightList" resultType="WeightVO">
+		select * from weight limit 20;
+	</select>
 </mapper>

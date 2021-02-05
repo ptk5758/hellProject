@@ -1,5 +1,7 @@
 package com.ptk.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,6 +21,11 @@ public class WeightDAOCon implements WeightDAO{
 	@Override
 	public void insertWeight(WeightVO vo) {
 		sqlSession.insert(NAMESPACE+".weightInsert", vo);
+	}
+	
+	@Override
+	public List<WeightVO> getWeightList() {
+		return sqlSession.selectList(NAMESPACE+".getWeightList");
 	}
 
 }

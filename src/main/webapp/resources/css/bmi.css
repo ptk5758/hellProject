@@ -89,4 +89,46 @@
 	background-color: #fff;
 	width: 85%;
 	margin: 0 auto;
+	padding: 0.8em;
+}
+.bmi_list_board{
+	padding: 0.5em;
+}
+.bmi_list_item{
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid#000000;
+	padding: 0.5em;
+	font-size: 20px;
+}
+.toplist{
+	padding: 0.8em;
+}
+.bmi_top{
+	font-weight: bold;
+	font-size: 22px;
+}
+.bmi_list_item div {
+	text-align: center;
+}
+.bmi_list_num{
+	width: 5%;
+}
+.bmi_list_height{
+	width: 10%;
+}
+.bmi_list_weight{
+	width: 10%;
+}
+.bmi_list_BMI{
+	width: 15%;
+}
+.bmi_list_answer{
+	width: 10%;
+}
+.bmi_list_date{
+	width: 25%;
+}
+.bmi_list_user{
+	width: 15%;
 }
