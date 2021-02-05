@@ -5,7 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="/css/bmi.css?ver=1">
 	<div class="bmiList">
 		<div class="bmi_option">
-			<div class="bmi_option_title">검색</div>
+			<div class="bmi_option_title">
+				<span id="countresult">5</span>
+				<span>의 결과</span>
+			</div>
 			<div class="bmi_option_board">
 				<div>보기</div>
 				<div>
@@ -15,11 +18,12 @@
 					</select>
 				</div>
 				<div>
-					<select>
-						<option>비만</option>
-						<option>과체중</option>
-						<option>정상</option>
+					<select onchange="getselectbmiList(this)">
 						<option>저체중</option>
+						<option>정상</option>
+						<option>과체중</option>
+						<option>비만</option>
+						<option>고도 비만</option>						
 					</select>
 				</div>
 			</div>
@@ -27,7 +31,13 @@
 		<div class="bmi_list_board" id="bmiboard">
 			<h1>로딩중</h1>
 		</div>
-		<div class="bmi_page">(대충 페이징)</div>
+		<div class="bmi_page">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
 	</div>
 	<script src="/js/bmi/bmilistPage.js?ver=1"></script>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

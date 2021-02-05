@@ -27,5 +27,10 @@ public class WeightDAOCon implements WeightDAO{
 	public List<WeightVO> getWeightList() {
 		return sqlSession.selectList(NAMESPACE+".getWeightList");
 	}
+	
+	@Override
+	public List<WeightVO> getWeightList(String selectvalue) {
+		return sqlSession.selectList(NAMESPACE+".getWeightListselect", selectvalue);
+	}
 
 }

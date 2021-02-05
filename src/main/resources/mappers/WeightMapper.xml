@@ -7,6 +7,9 @@
 		insert into weight (weight,height,age,gender,ip,bmi,bmi_status,user) values (#{weight},#{height},#{age},#{gender},#{ip},#{bmi},#{bmi_status},#{user})
 	</insert>
 	<select id="getWeightList" resultType="WeightVO">
-		select * from weight order by uploadDate desc limit 20;
+		select * from weight order by uploadDate desc limit 0,10;
+	</select>
+	<select id="getWeightListselect" resultType="WeightVO">
+		select * from weight where bmi_status=#{bmi_status} order by uploadDate desc limit 0,10;
 	</select>
 </mapper>

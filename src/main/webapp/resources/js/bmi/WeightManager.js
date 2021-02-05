@@ -44,7 +44,7 @@
 							</div>
 							<div class="bmi_INFO_BMI">
 								<span>BMI</span>
-								<span>${jsonData.bmi_status}</span>
+								<span>${jsonData.bmi}</span>
 							</div>
 						</div>
 						<div class="bmi_Result">
@@ -56,15 +56,17 @@
 				resultboard.innerHTML = result;
 				resultboard.style.opacity = 1;
 				let answercolor;
-				if(jsonData.bmi_status === "비만"){
+				if(data.bmi_status === "비만"){
 					answercolor = "#ff0000";
-				} else if (jsonData.bmi_status === "과체중") {
+				} else if (data.bmi_status === "과체중") {
 					answercolor = "#b168ee";
-				} else if (jsonData.bmi_status === "정상") {
+				} else if (data.bmi_status === "정상") {
 					answercolor = "#5cf928";
+				} else if (data.bmi_status === "고도 비만")  {
+					answercolor = "#ff2020";
 				} else {
-					answercolor = "#fff";
-				}
+					answercolor = "#000000";
+				}	
 				document.getElementById('answer').style.color = answercolor;
 				document.getElementById('WeightButton').style.pointerEvents = "none";
 			}

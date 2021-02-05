@@ -8,5 +8,6 @@ public interface WeightDAO {
 	
 	public void insertWeight(WeightVO vo);
 	public List<WeightVO> getWeightList();
+	public List<WeightVO> getWeightList(String selectvalue);
 
 }

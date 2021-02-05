@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ptk.domain.WeightVO;
@@ -37,14 +38,17 @@ public class APIWeight {
 		double weight = vo.getWeight();
 		double bmi = weight/(height*height);
 		vo.setBmi(Double.parseDouble(String.format("%.2f", bmi)));
-		if(vo.getBmi() <= 14.06D) {
-			vo.setBmi_status("저체중");
-		} else if (vo.getBmi() <= 19.80D){
-			vo.setBmi_status("정상");
-		} else if (vo.getBmi() <= 22.13D){
-			vo.setBmi_status("과체중");
-		} else {
+		logger.info(vo.getBmi()+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+		if(vo.getBmi() >= 30d) {
+			vo.setBmi_status("고도 비만");
+		} else if(vo.getBmi() >= 25d) {
 			vo.setBmi_status("비만");
+		} else if(vo.getBmi() >= 23d) {
+			vo.setBmi_status("과체중");
+		} else if(vo.getBmi() >= 18.5d) {
+			vo.setBmi_status("정상");
+		} else {
+			vo.setBmi_status("저체중");
 		}
 		dao.insertWeight(vo);
 		String result;
@@ -58,6 +62,34 @@ public class APIWeight {
 		String result;
 		
 		List<WeightVO> list = dao.getWeightList();
+		if(list.isEmpty()) {
+			result = "{\"count\":\"0\"}";
+		} else {
+			
+			result = "{\"count\":\""+list.size()+"\",\"list\":[";		
+			
+			for(int i=0; i<list.size(); i++) {
+				
+				WeightVO vo = list.get(i);
+				result += vo.toString();
+				
+				if(i+1 == list.size()) {
+					result += "]}";
+				} else {
+					result += ",";
+				}
+				
+			}
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/getBMIList", method = RequestMethod.GET, produces = "application/json; charset=UTF-8", params = {"selectvalue"})
+	public String getBMIList(@RequestParam("selectvalue") String selectvalue) {
+		String result;
+		logger.info(selectvalue);
+		List<WeightVO> list = dao.getWeightList(selectvalue);
 		if(list.isEmpty()) {
 			result = "{\"count\":\"0\"}";
 		} else {

@@ -85,11 +85,39 @@
 	padding: 0.8em;
 }
 /*-----------------다른 사람 최근측정 페이지-------------------*/
+/*----------------------검색---------------------------  */
+.bmi_option{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 97%;
+}
+.bmi_option_board{
+	display: flex;
+	align-items: center;
+	font-size: 22px;
+	font-weight: bold;
+}
+.bmi_option_board > div {
+	margin: 0.4em;
+}
+.bmi_option_title{
+	font-size: 22px;
+	font-weight: bold;
+}
+.bmi_option_board select {
+	font-size: 18px;
+	width: 150px;
+	padding: 0.3em;
+	font-weight: bold;
+}
+/* ---------------------리스트----------------------- */
 .bmiList{
 	background-color: #fff;
 	width: 85%;
 	margin: 0 auto;
 	padding: 0.8em;
+	padding-bottom: 80px;
 }
 .bmi_list_board{
 	padding: 0.5em;
@@ -111,6 +139,7 @@
 }
 .bmi_list_item div {
 	text-align: center;
+	align-self: center;
 }
 .bmi_list_num{
 	font-weight: bold;
@@ -140,3 +169,35 @@
 .bmi_list_user{
 	width: 15%;
 }
+
+/*-----------------페이징--------------------  */
+
+.bmi_page{
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
