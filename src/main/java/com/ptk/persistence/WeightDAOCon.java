@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.ptk.domain.PageVO;
 import com.ptk.domain.WeightVO;
 
 
@@ -31,6 +32,11 @@ public class WeightDAOCon implements WeightDAO{
 	@Override
 	public List<WeightVO> getWeightList(String selectvalue) {
 		return sqlSession.selectList(NAMESPACE+".getWeightListselect", selectvalue);
+	}
+	
+	@Override
+	public List<WeightVO> getWeightList_Page(PageVO page) {
+		return sqlSession.selectList(NAMESPACE+".getWeightListPage", page);
 	}
 
 }

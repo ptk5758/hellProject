@@ -10,6 +10,9 @@
 		select * from weight order by uploadDate desc limit 0,10;
 	</select>
 	<select id="getWeightListselect" resultType="WeightVO">
-		select * from weight where bmi_status=#{bmi_status} order by uploadDate desc limit 0,10;
+		select * from weight where bmi_status=#{bmi_status} order by uploadDate desc limit 0,50;
+	</select>
+	<select id="getWeightListPage" resultType="WeightVO">
+	select * from weight order by uploadDate desc limit #{limitstart},#{pagecut};
 	</select>
 </mapper>

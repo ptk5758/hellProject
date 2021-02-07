@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ptk.domain.PageManager;
+import com.ptk.domain.PageVO;
 import com.ptk.domain.WeightVO;
 import com.ptk.persistence.WeightDAO;
 
@@ -60,8 +62,11 @@ public class APIWeight {
 	@RequestMapping(value = "/getBMIList", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public String getBMIList() {
 		String result;
+		PageVO page = new PageVO();
+		PageManager pmg = new PageManager(page);
+		logger.info(pmg.getPage().toString());		
+		List<WeightVO> list = dao.getWeightList_Page(pmg.getPage());
 		
-		List<WeightVO> list = dao.getWeightList();
 		if(list.isEmpty()) {
 			result = "{\"count\":\"0\"}";
 		} else {
