@@ -12,7 +12,8 @@
 			<div class="bmi_option_board">
 				<div>보기</div>
 				<div>
-					<select>
+					<select id="pagecut">
+						<option>5</option>
 						<option>10</option>
 						<option>20</option>
 					</select>
@@ -31,7 +32,7 @@
 		<div class="bmi_list_board" id="bmiboard">
 			<h1>로딩중</h1>
 		</div>
-		<div class="bmi_page">
+		<div class="bmi_page" id="pageBoard">
 			<div>1</div>
 			<div>2</div>
 			<div>3</div>

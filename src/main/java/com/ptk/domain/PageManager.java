@@ -10,7 +10,7 @@ public class PageManager {
 	}
 	
 	private void init() {
-		page.setTotallist(40);//임시 총 게시물수
+		//page.setTotallist(20);//임시 총 게시물수
 		page.setTotalpage((int)Math.ceil(page.getTotallist()/page.getPagecut()));
 		
 		if(page.getNowpage() <= 0) {

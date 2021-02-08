@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,11 +59,15 @@ public class APIWeight {
 		return result;
 		
 	}
-	
+	/**
+	 *  다른사람의 최근측정 값을 불러옵니다
+	 *  pagecut 출력할 리스트 수 default 5개 
+	 */
 	@RequestMapping(value = "/getBMIList", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public String getBMIList() {
 		String result;
 		PageVO page = new PageVO();
+		page.setTotallist(getTotalListCount());
 		PageManager pmg = new PageManager(page);
 		logger.info(pmg.getPage().toString());		
 		List<WeightVO> list = dao.getWeightList_Page(pmg.getPage());
@@ -71,7 +76,7 @@ public class APIWeight {
 			result = "{\"count\":\"0\"}";
 		} else {
 			
-			result = "{\"count\":\""+list.size()+"\",\"list\":[";		
+			result = "{\"count\":\""+pmg.getPage().getTotallist()+"\",\"list\":[";		
 			
 			for(int i=0; i<list.size(); i++) {
 				
@@ -79,14 +84,15 @@ public class APIWeight {
 				result += vo.toString();
 				
 				if(i+1 == list.size()) {
-					result += "]}";
+					result += "],";
 				} else {
 					result += ",";
 				}
 				
-			}
-		}
-		
+			}			
+			result += "\"page\":"+pmg.getPage().toString()+"";
+			result += "}";
+		}	
 		return result;
 	}
 	
@@ -117,6 +123,83 @@ public class APIWeight {
 		
 		return result;
 	}
+	
+	@RequestMapping(value = "/GetBMIListPage", method = RequestMethod.GET, produces = "application/text; charset=UTF-8", params = {"pagecut"})
+	public String getBMIListPage(@RequestParam("pagecut") Integer pagecut) {
+		PageVO page = new PageVO();
+		page.setPagecut(pagecut);
+		page.setTotallist(getTotalListCount());
+		PageManager pmg = new PageManager(page);
+		logger.info(pmg.getPage().toString());
+		List<WeightVO> list = dao.getWeightList_Page(pmg.getPage());
+		String result;
+		result = "";
+		if(list.isEmpty()) {
+			result = "{\"count\":\"0\"}";
+		} else {
+			
+			result = "{\"count\":\""+pmg.getPage().getTotallist()+"\",\"list\":[";		
+			
+			for(int i=0; i<list.size(); i++) {
+				
+				WeightVO vo = list.get(i);
+				result += vo.toString();
+				
+				if(i+1 == list.size()) {
+					result += "],";
+				} else {
+					result += ",";
+				}
+				
+			}			
+			result += "\"page\":"+pmg.getPage().toString()+"";
+			result += "}";
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/GetBMIListPage", method = RequestMethod.GET, produces = "application/text; charset=UTF-8", params = {"pagecut","nowpage"})
+	public String getBMIListPage(@RequestParam("pagecut") Integer pagecut, @RequestParam("nowpage") Integer nowpage) {
+		PageVO page = new PageVO();
+		page.setNowpage(nowpage);
+		page.setPagecut(pagecut);
+		page.setTotallist(getTotalListCount());
+		PageManager pmg = new PageManager(page);
+		logger.info(pmg.getPage().toString());
+		List<WeightVO> list = dao.getWeightList_Page(pmg.getPage());
+		String result;
+		result = "";
+		if(list.isEmpty()) {
+			result = "{\"count\":\"0\"}";
+		} else {
+			
+			result = "{\"count\":\""+pmg.getPage().getTotallist()+"\",\"list\":[";		
+			
+			for(int i=0; i<list.size(); i++) {
+				
+				WeightVO vo = list.get(i);
+				result += vo.toString();
+				
+				if(i+1 == list.size()) {
+					result += "],";
+				} else {
+					result += ",";
+				}
+				
+			}			
+			result += "\"page\":"+pmg.getPage().toString()+"";
+			result += "}";
+		}
+		return result;
+	}
+	
+	private int getTotalListCount() {
+		int result;
+		result = dao.getTotallist();
+		return result;
+		
+	}
+	
 
 }
 

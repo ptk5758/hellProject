@@ -13,5 +13,6 @@ public interface WeightDAO {
 	/**
 	 * 페이징 된 리스트 출력하기
 	 */
-	public List<WeightVO> getWeightList_Page(PageVO page); 
+	public List<WeightVO> getWeightList_Page(PageVO page);
+	public int getTotallist();
 }

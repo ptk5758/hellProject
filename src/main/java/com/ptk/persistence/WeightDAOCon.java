@@ -38,5 +38,10 @@ public class WeightDAOCon implements WeightDAO{
 	public List<WeightVO> getWeightList_Page(PageVO page) {
 		return sqlSession.selectList(NAMESPACE+".getWeightListPage", page);
 	}
+	
+	@Override
+	public int getTotallist() {
+		return sqlSession.selectOne(NAMESPACE+".getTotalList");
+	}
 
 }
