@@ -9,7 +9,7 @@
 			<div class="idpw_item">
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">아이디</div>
-					<div class="idpw_item_input"><input name="id"></div>
+					<div class="idpw_item_input"><input name="id" placeholder="아이디"></div>
 				</div>
 				<div class="idpw_min_box">
 					<span class="idpw_item_text">아이디 중복확인</span>
@@ -19,11 +19,11 @@
 			<div class="idpw_item">			
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">비밀번호</div>
-					<div class="idpw_item_input"><input name="password"></div>
+					<div class="idpw_item_input"><input name="password" placeholder="비밀번호"></div>
 				</div>
 				<div class="idpw_min_box">
 					<span class="idpw_item_text">비밀번호 확인</span>
-					<span class="idpw_item_input"><input name="passwordcheck"></span>
+					<span class="idpw_item_input"><input name="passwordcheck"  placeholder="비밀번호 확인"></span>
 				</div>
 			</div>
 		</div>		
@@ -32,17 +32,17 @@
 			<div class="idpw_item">
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">이름</div>
-					<div class="idpw_item_input"><input name="name"></div>
+					<div class="idpw_item_input"><input name="name"  placeholder="이름"></div>
 				</div>
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">나이</div>
-					<div class="idpw_item_input"><input name="age" type="number" min="0"></div>
+					<div class="idpw_item_input"><input name="age" type="number" min="0"  placeholder="나이"></div>
 				</div>
 			</div>
 			<div class="idpw_item">			
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">닉네임</div>
-					<div class="idpw_item_input"><input name="nickname"></div>
+					<div class="idpw_item_input"><input name="nickname"  placeholder="닉네임"></div>
 				</div>
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">성별</div>
@@ -55,7 +55,7 @@
 			<div class="idpw_item">
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">이메일</div>
-					<div class="idpw_item_input"><input id="email1" name="email"></div>
+					<div class="idpw_item_input"><input id="email1" name="email"  placeholder="이메일"></div>
 				</div>
 				<div class="idpw_min_box">
 					<div class="idpw_item_text">선택</div>

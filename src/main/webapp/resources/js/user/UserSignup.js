@@ -1,9 +1,6 @@
 /**
  * 
  */
-
-	console.log(document.getElementsByName('id'));
-	
 	let signupdo = () => {		
 		
 		let id = document.querySelector('[name="id"]').value;
@@ -23,6 +20,12 @@
 		if(email2 == "write"){
 			email = email1;
 		}
+		for(let index of document.querySelectorAll('input')){
+			if(index.value === "" || index.value == null){
+				alert(index.placeholder+"을 입력하여 주세요");
+				return;
+			}
+		}
 		
 		let data = {
 			id: id,
@@ -33,12 +36,20 @@
 			gender: gender,
 			email: email
 		}
-		console.log(JSON.stringify(data));
 		
 		let xhp = new XMLHttpRequest();
 		xhp.open("POST", "/apiuser/signup", true);
 		xhp.setRequestHeader("Content-Type","application/json; charset=UTF-8");
 		xhp.send(JSON.stringify(data));
 		
-		
+		xhp.onreadystatechange = () => {
+			if(xhp.readyState === 4 && xhp.status === 200){
+				let jsonData = JSON.parse(xhp.responseText);
+				sessionStorage.setItem("sessionID", jsonData.id);
+				sessionStorage.setItem("sessionNickName", jsonData.nickname);
+				sessionStorage.setItem("sessionLevel", jsonData.level);
+				alert("회원가입되었습니다!");
+				location.href="/";
+			}
+		}
 	}

@@ -1,6 +1,7 @@
 package com.ptk.controller.api;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,7 @@ public class APIUser {
 	 * @return
 	 */
 	@RequestMapping(value = "/signup", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
-	public String userSignup(@RequestBody MemberVO vo) {		
+	public String userSignup(@RequestBody MemberVO vo, HttpSession session) {		
 		User user = vo;
 		
 		dao.signupUser(user);		
@@ -38,7 +39,10 @@ public class APIUser {
 		} else {
 			logger.info("니가생각한그거 아님");
 		}
-		return "{\"msg\":\"성공\"}";
+		session.setAttribute("sessionID", vo.getId());
+		session.setAttribute("sessionNickName", vo.getNickname());
+		session.setAttribute("sessionLevel", 1);
+		return user.toString();
 	}
 
 }
