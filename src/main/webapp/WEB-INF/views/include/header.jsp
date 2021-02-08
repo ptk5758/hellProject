@@ -11,7 +11,10 @@
 <body>
 	<header>
 		<div onclick="location.href='/BMI'">로고</div>
-		<div>로그인</div>
+		<div>
+			<span>로그인</span>
+			<span onclick="location.href='/signup'">회원가입</span>
+		</div>
 	</header>
 	<nav>
 		<div onclick="location.href='/BMI'">BMI 측정하러가기</div>

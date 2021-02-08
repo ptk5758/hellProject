@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.signupBoard{
+	background-color: #fff;
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1.2em;
+}
+.boardTitle{
+	font-size: 22px;
+	font-weight: bold;
+	padding: 0.5em;
+	border-bottom: 1px solid#000000;
+}
+.signup_item{
+	display: flex;
+	flex-direction: column;
+	border: 2px solid#000000;
+	margin: 1.2em;
+}
+.idpw_item{
+	display: flex;
+	padding: 1.0em;
+	font-size: 20px;
+}
+.idpw_min_box{
+	display: flex;
+}
+.idpw_item_text{
+	width: 150px;
+	text-align: center;
+}
+.idpw_item_input{
+	width: 250px;
+	display: flex;
+	justify-content: center;
+}
