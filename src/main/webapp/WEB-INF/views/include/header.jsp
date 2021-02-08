@@ -12,15 +12,48 @@
 	<header>
 		<div onclick="location.href='/BMI'">로고</div>
 		<div>
-			<c:if test="${sessionID == null }">
-				<span>로그인</span>
-				<span onclick="location.href='/signup'">회원가입</span>
-			</c:if>
-			<c:if test="${sessionID != null }">
-				<span>로그아웃</span>
-				<span onclick="">마이페이지</span>
-			</c:if>
-		</div>
+			<input type="checkbox" id="menu">
+			<label class="menuButton" for="menu">메뉴</label>
+			<div id="menuBoard">
+				<div class="loginBoard">
+				<c:if test="${sessionID == null }">
+					<div class="loginItem">
+						<input placeholder="아이디" id="id">
+					</div>
+					<div class="loginItem">
+						<input placeholder="비밀번호" id="password">
+					</div>
+					<div class="loginItem">
+						<button onclick="login()">로그인</button>
+					</div>
+				</c:if>
+				<c:if test="${sessionID != null }">
+					<div class="loginItem">
+						<div>아이디: ${sessionID }</div>
+					</div>
+					<div class="loginItem">
+						<div>닉네임: ${sessionNickName }</div>
+					</div>
+					<div class="loginItem">
+						<div>등급: ${sessionLevel }</div>
+					</div>
+				</c:if>				
+				</div>
+				
+				<div class="loginOptionBoard">					
+					<c:if test="${sessionID == null }">
+					<div class="loginOptionBoardItem">아이디찾기</div>
+					<div class="loginOptionBoardItem">비밀번호찾기</div>
+					<div onclick="location.href='/signup'" id="signup" class="loginOptionBoardItem">회원가입</div>
+					</c:if>
+					<c:if test="${sessionID != null }">
+					<div onclick="location.href='/logout'" class="loginOptionBoardItem">로그아웃</div>
+					<div class="loginOptionBoardItem">1:1 문의답변</div>
+					<div id="signup" class="loginOptionBoardItem">마이페이지</div>
+					</c:if>
+				</div>
+			</div>
+		</div>		
 	</header>
 	<nav>
 		<div onclick="location.href='/BMI'">BMI 측정하러가기</div>
@@ -29,3 +62,4 @@
 		<div>4번</div>
 		<div>5번</div>
 	</nav>
+	

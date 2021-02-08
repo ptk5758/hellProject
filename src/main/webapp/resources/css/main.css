@@ -13,6 +13,7 @@ header{
 	font-size: 18px;
 	height: 60px;
 	align-items: center;
+	z-index: 1;
 }
 nav{
 	display: flex;
@@ -21,7 +22,85 @@ nav{
 	background-color: #c4e4fd;
 	font-weight: bold;
 	font-size: 20px;
+	z-index: 1;
 }
+
+/* ----------------------헤더 로그인 메뉴------------------------ */
+input[type="checkbox"]{
+	display: none;
+}
+.menuButton{
+	z-index: 1;
+	background-color: red;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 0.4em;
+	position: fixed;
+	top: 50%;
+	right: 0px;
+	transition:all .35s;
+}
+#menuBoard{
+	width: 300px;
+	height: 100%;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	right: -302px;
+	z-index: 1;
+	transition:all .35s;
+	border: 2px solid#d9d9d9;
+}
+input[id="menu"]:checked + label {
+	right: 300px;
+}
+input[id="menu"]:checked + label + #menuBoard{
+	right: 0;
+}
+
+.loginBoard{
+	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #ff6c6c;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-radius: 3px;
+}
+.loginItem{
+	margin: 0.3em;
+	width: 80%;
+}
+.loginItem input {
+	font-size: 20px;
+	width: 100%;
+}
+.loginItem button {
+	width: 104%;
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 4px;
+	cursor: pointer;
+}
+.loginOptionBoard{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+.loginOptionBoardItem{
+	background: #c4e4fd;
+	color: #000000;
+	font-size: 14px;
+	padding: 8px;
+	border-radius: 0px 0px 5px 5px;
+	cursor: pointer;
+}
+#signup{
+	background-color: #a9fc8d;
+}
+
 
 
 

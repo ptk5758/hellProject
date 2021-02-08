@@ -6,4 +6,10 @@
 	<insert id="signupUser">
 		insert into user (id,password,name,nickname,age,gender,email) values (#{id},#{password},#{name},#{nickname},#{age},#{gender},#{email})
 	</insert>
+	<select id="logincheck" resultType="boolean">
+		select if(count(*)=1 ,1,0) as result from user where id=#{id} and password=#{password};
+	</select>
+	<select id="getMemberVO" resultType="MemberVO">
+		select * from user where id=#{id} 
+	</select>
 </mapper>

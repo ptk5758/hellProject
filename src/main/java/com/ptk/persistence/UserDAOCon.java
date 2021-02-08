@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.ptk.domain.MemberVO;
 import com.ptk.domain.User;
 
 @Repository
@@ -18,6 +19,17 @@ public class UserDAOCon implements UserDAO{
 	@Override
 	public void signupUser(User user) {
 		sqlSession.insert(NAMESPACE+".signupUser", user);
+	}
+	
+	@Override
+	public boolean logincheck(User user) {
+		return sqlSession.selectOne(NAMESPACE+".logincheck", user);
+	}
+	
+	
+	@Override
+	public MemberVO getMemberVO(String id) {
+		return sqlSession.selectOne(NAMESPACE+".getMemberVO", id);
 	}
 
 }

@@ -33,7 +33,7 @@ public class APIUser {
 	public String userSignup(@RequestBody MemberVO vo, HttpSession session) {		
 		User user = vo;
 		
-		dao.signupUser(user);		
+		dao.signupUser(user);
 		if(user instanceof MemberVO) {
 			logger.info("니가생각한그거 맞음");
 		} else {
@@ -43,6 +43,33 @@ public class APIUser {
 		session.setAttribute("sessionNickName", vo.getNickname());
 		session.setAttribute("sessionLevel", 1);
 		return user.toString();
+	}
+	
+	/**
+	 * 로그인 메서드
+	 */
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/text; charset=UTF-8")
+	public String userlogin(@RequestBody MemberVO vo, HttpSession session) {
+		logger.info(vo.toString());
+		User user = vo;
+		String result;
+		if(dao.logincheck(user)) {
+			logger.info("존재함");
+			vo = getMemberObject(vo.getId());
+			session.setAttribute("sessionID", vo.getId());
+			session.setAttribute("sessionNickName", vo.getNickname());
+			session.setAttribute("sessionLevel", 1);
+			result = vo.toString();			
+		} else {
+			logger.info("존재안함");
+			result = "{\"msg\":\"실패\",\"comment\":\"아이디 또는 비밀번호가 일치하지 않습니다.\"}";
+		}
+		return result;
+	}
+	
+	private MemberVO getMemberObject(String id) {		
+		return dao.getMemberVO(id);
 	}
 
 }

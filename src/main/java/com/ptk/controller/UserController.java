@@ -1,5 +1,7 @@
 package com.ptk.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,16 @@ public class UserController {
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signupPage() {
 		return "/user/signup";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)	
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect: /";
+	}
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage() {
+		return "/user/login";
 	}
 
 }
