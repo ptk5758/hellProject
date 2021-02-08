@@ -78,6 +78,12 @@
 				`;
 			}
 			pageButtnEle.innerHTML = result;
+			return page;
+		}).then((page)=>{
+			let nowpage = page.nowpage;
+			let nowpagebutton = document.querySelectorAll(`div[data-nowpage="${nowpage}"]`)[0];
+			nowpagebutton.style.color = "red";
+			console.log(nowpagebutton);
 		});
 	}
 	getBMIlist();
@@ -238,6 +244,12 @@
 				`;
 			}
 			pageButtnEle.innerHTML = result;
+			return page;
+		}).then((page)=>{
+			let nowpage = page.nowpage;
+			let nowpagebutton = document.querySelectorAll(`div[data-nowpage="${nowpage}"]`)[0];
+			nowpagebutton.style.color = "red";
+			console.log(nowpagebutton);
 		});
 	}
 	

@@ -33,7 +33,7 @@
 			<h1>로딩중</h1>
 		</div>
 		<div class="bmi_page" id="pageBoard">
-			<div>1</div>
+			<div style="color: 'red'">1</div>
 			<div>2</div>
 			<div>3</div>
 			<div>4</div>

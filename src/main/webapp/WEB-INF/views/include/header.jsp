@@ -12,8 +12,14 @@
 	<header>
 		<div onclick="location.href='/BMI'">로고</div>
 		<div>
-			<span>로그인</span>
-			<span onclick="location.href='/signup'">회원가입</span>
+			<c:if test="${sessionID == null }">
+				<span>로그인</span>
+				<span onclick="location.href='/signup'">회원가입</span>
+			</c:if>
+			<c:if test="${sessionID != null }">
+				<span>로그아웃</span>
+				<span onclick="">마이페이지</span>
+			</c:if>
 		</div>
 	</header>
 	<nav>
