@@ -12,7 +12,7 @@
 			<div class="bmi_option_board">
 				<div>보기</div>
 				<div>
-					<select id="pagecut">
+					<select id="pagecut" onchange="viewthispage(this)" data-nowpage="1">
 						<option>5</option>
 						<option>10</option>
 						<option>20</option>

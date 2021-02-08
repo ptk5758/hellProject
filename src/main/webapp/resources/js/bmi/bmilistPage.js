@@ -173,6 +173,15 @@
 			let listcount = jsondata.count;
 			document.getElementById('countresult').innerHTML = listcount;
 			let bmiboard = document.getElementById('bmiboard');
+			
+			console.log(jsondata.count);
+			console.log(jsondata.page.nowpage);
+			console.log(jsondata.page.pagecut);
+			
+			let showcount = jsondata.count - ((jsondata.page.nowpage-1) * jsondata.page.pagecut);
+			console.log(showcount);
+			
+			
 			let result = `
 			<div class="bmi_list_item toplist">
 				<div class="bmi_list_num bmi_top">Num</div>
@@ -203,7 +212,7 @@
 				
 				result += `
 					<div class="bmi_list_item">
-						<div class="bmi_list_num">${listcount}</div>
+						<div class="bmi_list_num">${showcount}</div>
 						<div class="bmi_list_height">${data.height}</div>
 						<div class="bmi_list_weight">${data.weight}</div>
 						<div class="bmi_list_age">${data.age}</div>
@@ -214,7 +223,7 @@
 						<div class="bmi_list_user">게스트</div>
 					</div>
 				`;
-				listcount--;
+				showcount--;
 			}
 			bmiboard.innerHTML = result;
 			return jsondata.page;
