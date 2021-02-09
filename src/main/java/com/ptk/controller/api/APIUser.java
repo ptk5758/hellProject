@@ -68,6 +68,24 @@ public class APIUser {
 		return result;
 	}
 	
+	@RequestMapping(value = "/idsearch", method = RequestMethod.POST, produces = "application/text; charset=UTF-8")
+	public String userIdsearch(@RequestBody MemberVO vo) {
+		String result;
+		result = "";
+		logger.info(vo.toString());
+		User user = vo;
+		if(dao.idsearch(user)) {
+			logger.info("아이디가 존재함");
+			user = (MemberVO) dao.idsearchReturn(user);
+			logger.info(user.toString());
+			result = user.toString();
+		} else {
+			logger.info("아이디가 존재하지 않음");
+			result = "{\"msg\":\"실패\",\"comment\":\"아이디를 찾을수 없습니다.\"}";
+		}
+		return result;
+	}
+	
 	private MemberVO getMemberObject(String id) {		
 		return dao.getMemberVO(id);
 	}

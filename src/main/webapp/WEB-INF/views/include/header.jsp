@@ -42,7 +42,7 @@
 				
 				<div class="loginOptionBoard">					
 					<c:if test="${sessionID == null }">
-					<div class="loginOptionBoardItem">아이디찾기</div>
+					<div class="loginOptionBoardItem" onclick="idsearch()">아이디찾기</div>
 					<div class="loginOptionBoardItem">비밀번호찾기</div>
 					<div onclick="location.href='/signup'" id="signup" class="loginOptionBoardItem">회원가입</div>
 					</c:if>

@@ -23,9 +23,9 @@ public class UserController {
 		session.invalidate();
 		return "redirect: /";
 	}
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/idsearch", method = RequestMethod.GET)
 	public String loginPage() {
-		return "/user/login";
+		return "/user/idsearch";
 	}
 
 }

@@ -31,5 +31,15 @@ public class UserDAOCon implements UserDAO{
 	public MemberVO getMemberVO(String id) {
 		return sqlSession.selectOne(NAMESPACE+".getMemberVO", id);
 	}
+	
+	@Override
+	public boolean idsearch(User user) {
+		return sqlSession.selectOne(NAMESPACE+".idsearch", user);
+	}
+	
+	@Override
+	public MemberVO idsearchReturn(User user) {
+		return sqlSession.selectOne(NAMESPACE+".idsearchReturn", user); 
+	}
 
 }

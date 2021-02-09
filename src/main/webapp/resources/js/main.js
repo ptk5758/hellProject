@@ -42,3 +42,35 @@
 			location.reload();
 		});
 	}
+	
+	let idsearch = () => {
+		let option = "top=50, left=100, width=800, height=300";
+		window.open('/idsearch', '아이디찾기', option);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

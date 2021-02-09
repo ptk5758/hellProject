@@ -12,4 +12,10 @@
 	<select id="getMemberVO" resultType="MemberVO">
 		select * from user where id=#{id} 
 	</select>
+	<select id="idsearch" resultType="boolean">
+		select if(count(*)=1, 1, 0) from user where email=#{email} and name=#{name}
+	</select>
+	<select id="idsearchReturn" resultType="MemberVO">
+		select * from user where email=#{email} and name=#{name}
+	</select>
 </mapper>

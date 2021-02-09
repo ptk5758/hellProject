@@ -1,13 +1,6 @@
 @charset "UTF-8";
 
-
-
-
-
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
 
 
 
@@ -51,10 +44,112 @@
 	display: flex;
 	justify-content: center;
 }
-/*---------------------로그인 페이지-------------------------  */
-.userLogin{
-	width: 70%;
-	margin: 0 auto;
-	background-color: #fff;
-	padding: 1.5em;
+/*---------------------아이디 찾기 페이지------------------------  */
+.idsearch{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
 }
+.idsearchTop{
+	background-color: #eee;
+	border: 1px solid#000000;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0.6em;
+}
+.idsearchContent{
+	border: 1px solid#000000;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+.idsearchContent_text{
+	font-size: 18px;
+	padding-left: 15px;
+	font-family: 'Sunflower', sans-serif;
+}
+.idsearchContent_Item{
+	display: flex;
+	border: 0px solid#000000;
+	padding: 0.5em;
+	font-size: 20px;
+}
+.idsearchContent_Item > div {
+	width: 100px;
+	text-align: center;
+	font-weight: bold;
+}
+.idsearchContent_Item > div + div{
+	width: 200px;
+	display: flex;
+	align-items: center;
+}
+.idsearchBottom{
+	background-color: #eee;
+	border: 1px solid#000000;
+	display: flex;
+	justify-content: center;
+	padding: 0.2em;
+}
+.idsearchBottom div {
+	margin: 0.3em;
+}
+.idsearchBottom button {
+	padding: 0.3em 0.6em;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+
+.idsearch_ResultBoard{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	font-size: 20px; 
+	height: 100%;
+	width: 100%;
+}
+.idsearch_ResultBoard_Item{
+	margin-left: 1.2em;
+}
+#closeBth{
+	background-color: #ff6c6c;
+	padding: 0.4em;
+	border-radius: 8px;
+	color:#fff;
+}
+
+#bth1{
+	background-color: #c4e4fd;
+	color:#fff;
+	border: 1px solid#eee;
+}
+#bth1:hover{
+	background-color: #add9fc;
+	color:#d9d9d9;
+}
+#bth2{
+	background-color: #ff6c6c;
+	border: 1px solid#eee;
+	color:#fff;
+}
+#bth2:hover {
+	background-color: #ff4a4a;
+	color:#d9d9d9;
+}
+
+
+
+
+
+
+
+
+
+
+
