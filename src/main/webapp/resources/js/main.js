@@ -48,6 +48,13 @@
 		window.open('/idsearch', '아이디찾기', option);
 	}
 	
+	let pwsearch = () => {
+		let option = "top=50, left=100, width=800, height=300";
+		window.open('/pwsearch', '비밀번호 찾기', option);
+	}
+	
+	
+	
 	
 	
 	

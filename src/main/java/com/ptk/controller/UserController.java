@@ -24,8 +24,12 @@ public class UserController {
 		return "redirect: /";
 	}
 	@RequestMapping(value = "/idsearch", method = RequestMethod.GET)
-	public String loginPage() {
+	public String idsearchPage() {
 		return "/user/idsearch";
+	}
+	@RequestMapping(value = "/pwsearch", method = RequestMethod.GET)
+	public String pwsearchPage() {
+		return "/user/pwsearch";
 	}
 
 }

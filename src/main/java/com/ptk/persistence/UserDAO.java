@@ -25,6 +25,11 @@ public interface UserDAO {
 	 */
 	public MemberVO idsearchReturn(User user);
 	
+	/**
+	 * 비멀번호 찾기 메서드
+	 */
+	public MemberVO pwsearchReturn(User user);
+	
 	
 
 }

@@ -86,6 +86,20 @@ public class APIUser {
 		return result;
 	}
 	
+	@RequestMapping(value = "/pwsearch", method = RequestMethod.POST,produces = "application/text; charset=UTF-8")
+	public String userpwsearch(@RequestBody MemberVO vo) {
+		logger.info(vo.toString());
+		String result;
+		User user = vo;
+		vo = dao.pwsearchReturn(user);
+		try {
+			result = vo.toString();
+		} catch (Exception e) {
+			result = "{\"msg\":\"실패\",\"comment\":\"정보를 찾을수 없습니다.\"}";
+		}		 
+		return  result;
+	}
+	
 	private MemberVO getMemberObject(String id) {		
 		return dao.getMemberVO(id);
 	}

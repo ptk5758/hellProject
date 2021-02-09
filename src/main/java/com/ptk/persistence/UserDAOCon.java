@@ -41,5 +41,10 @@ public class UserDAOCon implements UserDAO{
 	public MemberVO idsearchReturn(User user) {
 		return sqlSession.selectOne(NAMESPACE+".idsearchReturn", user); 
 	}
+	
+	@Override
+	public MemberVO pwsearchReturn(User user) {
+		return sqlSession.selectOne(NAMESPACE+".pwsearchReturn", user);
+	}
 
 }

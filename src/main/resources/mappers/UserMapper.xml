@@ -18,4 +18,7 @@
 	<select id="idsearchReturn" resultType="MemberVO">
 		select * from user where email=#{email} and name=#{name}
 	</select>
+	<select id="pwsearchReturn" resultType="MemberVO">
+		select * from user where email=#{email} and name=#{name} and id=#{id}
+	</select>
 </mapper>
