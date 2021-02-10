@@ -30,13 +30,16 @@ public class APIFree {
 	private static final Logger logger = LoggerFactory.getLogger(APIFree.class);
 	
 	@RequestMapping(value = "/Posting", method = RequestMethod.POST, produces = "application/text; charset=UTF-8")
-	public String freebbsposting(@ModelAttribute FreeVO vo, @RequestParam("img") MultipartFile[] file) {
+	public String freebbsposting(FreeVO vo, @RequestParam(value = "file", required = false) MultipartFile file) {
 		String result;
 		result = "";
 		logger.info("성공!");
-		logger.info(file[0].getOriginalFilename());
 		logger.info(vo.getJSONString());
-		//dao.FreebbsPosting(vo);
+		if(file == null) {
+			logger.info("파일이 널임");
+		} else {
+			logger.info("파일이 널이아님");
+		}
 		return result;
 	}
 	
