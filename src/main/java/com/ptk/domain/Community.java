@@ -14,6 +14,7 @@ public class Community implements Communication{
 	public String getJSONString() {
 		String result;
 		result = "{";
+		result += "\"uid\":\""+this.uid+"\",";
 		result += "\"user\":\""+this.user+"\",";
 		result += "\"subject\":\""+this.subject+"\",";
 		result += "\"content\":\""+this.content+"\",";

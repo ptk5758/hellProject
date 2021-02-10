@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+/* free 자유게시판 css */
+
+.freeMain{
+	width: 90%;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 0.8em;
+	width: 80%;
+}
+.freeBoard{
+	display: flex;
+	flex-direction: column;
+}
+.freeBoardList{
+	display: flex;
+	justify-content: center;
+	margin: 0.3em;
+	border-top: 1px solid#000000;
+	border-bottom: 1px solid#000000;
+}
+.listtop div {
+	font-weight: bold;
+	font-size: 20px;
+}
+.freeBoardList div {
+	text-align: center;
+	padding: 0.6em;
+}
+.freeBoardList_Num{
+	width: 5%;
+}
+.freeBoardList_Subject{
+	width: 38%;
+	cursor: pointer;
+}
+.freeBoardList_Subject:hover{
+	background-color: #d9d9d9;
+}
+.freeBoardList_Date{
+	width: 18%;
+}
+.freeBoardList_User{
+	width: 15%;
+}
+.freeBoardList_Ref{
+	width: 8%;
+}
+.freeBoardList_Like{
+	width: 8%;
+}
+#freeBoardPage{
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0.5em;
+	margin: 1em;
+}
+#freeBoardPage div {
+	
+}
+
+.freeBoardSearchOption{
+	display: flex;
+	justify-content: center;
+	align-items : center;
+	padding: 1.2em;
+}
+.freeBoardSearchOption div {
+	display: flex;
+	justify-content: center;
+}
+.freeBoard_refresh{
+	width: 10%;
+}
+.freeBoard_refresh img {
+	max-width: 50px;
+	max-height: 50px;
+	cursor: pointer;
+}
+.freeBoard_select{
+	width: 10%;
+}
+.freeBoard_select select {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0.2em;
+}
+.freeBoard_input{
+	width: 25%;
+}
+.freeBoard_input input {
+	width: 90%;
+	font-size: 20px;
+	padding: 0.2em;
+}
+.freeBoard_searchbutton{
+	width: 8%;
+}
+.freeBoard_postingbutton{
+	width: 15%;
+}
+.freeBoardSearchOption button {
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

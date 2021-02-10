@@ -17,6 +17,11 @@ public class FreeDAO implements CommunityDAO{
 	
 	private static final String NAMESPACE = "com.ptk.mapper.FreeBBSMapper";
 	
+	@Override
+	public int gettotalList() {
+		return sqlSession.selectOne(NAMESPACE+".getTotalList");
+	}
+	
 	public void FreebbsPosting(FreeVO vo) {
 		sqlSession.insert(NAMESPACE+".bbsinsert", vo);
 	}

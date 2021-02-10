@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ptk.domain.FileUpload;
 import com.ptk.domain.FreeVO;
+import com.ptk.domain.PageManager;
+import com.ptk.domain.PageVO;
 import com.ptk.persistence.FreeDAO;
 
 @RestController
@@ -45,24 +47,35 @@ public class APIFree {
 	
 	@RequestMapping(value = "/GetList", method = RequestMethod.GET, produces = "application/text; charset=UTF-8")
 	public String getFreeList() {
+		PageVO page = new PageVO();
+		page.setTotallist(getTotalList());
+		PageManager pmg = new PageManager(page);
+		page = pmg.getPage();
 		String result;
 		List<FreeVO> list = dao.getList();
+		
 		if(list.isEmpty()) {
 			result = "{\"count\":\"0\"}";
 		} else {
-			result = "{\"count\":\""+list.size()+"\",\"list\":[";
+			result = "{\"count\":\""+getTotalList()+"\",\"list\":[";
 			for(int i=0; i<list.size(); i++) {
 				FreeVO vo = list.get(i);
 				result += vo.getJSONString();
 				if(i+1 == list.size()) {
-					result += "]}";
+					result += "],";
 				} else {
 					result += ",";
 				}
 			}
+			result += "\"page\":"+page.toString()+"}";
 		}
+		//logger.info(result);
 		return result;
 	}
 	
+	
+	private int getTotalList() {		
+		return dao.gettotalList();
+	}
 
 }
