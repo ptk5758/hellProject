@@ -73,6 +73,16 @@ public class APIFree {
 		return result;
 	}
 	
+	@RequestMapping(value = "/GetFreeVO", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public String getFreeVO(@RequestParam(value = "uid", required = false) Integer uid) {
+		String result;
+		logger.info(uid+"<<<<<<<<<<<<<<<<<<<");
+		FreeVO vo = dao.getFreeItem(uid);
+		logger.info(vo.getJSONString());
+		result = vo.getJSONString();
+		return result;
+	}
+	
 	
 	private int getTotalList() {		
 		return dao.gettotalList();

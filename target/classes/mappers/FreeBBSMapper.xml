@@ -12,4 +12,7 @@
 	<select id="getTotalList" resultType="int">
 		select count(*) from free
 	</select>
+	<select id="getFreeVO" resultType="FreeVO">
+		select * from free where uid=#{uid}
+	</select>
 </mapper>

@@ -204,9 +204,59 @@
 	color: #fff;
 	cursor: pointer;
 }
-
-
-
+/* -------------------자유게시판 뷰페이지----------------------  */
+.viewmain{
+	background-color: #fff;
+	width: 80%;
+	margin: 0 auto;
+	padding: 1em;
+}
+.viewBoard{
+	display: flex;
+	flex-direction: column;
+}
+.viewBoard > div {
+	border: 1px solid#000000;
+}
+.viewBoard_SubjectBoard{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0.8em;
+}
+.viewBoard_itenInfo{
+	display: flex;
+	padding: 0.8em;
+	
+}
+.viewBoard_itenInfo div{
+	margin: 0.2em;
+	display: flex;
+	justify-content: space-around;
+}
+.bold{
+	font-weight: bold;
+}
+.viewBoard_itenInfo_user{
+	width: 11%;
+}
+.viewBoard_itenInfo_user > div {
+	font-weight: bold;
+}
+.viewBoard_itenInfo_ref{
+	width: 11%;
+}
+.viewBoard_itenInfo_like{
+	width: 11%;
+}
+.viewBoard_contentBoard{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1em;
+}
+.viewBoard_contentBoard img {
+	max-width: 100%;
+}
 
 
 

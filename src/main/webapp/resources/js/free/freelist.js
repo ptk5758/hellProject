@@ -56,4 +56,5 @@
 	
 	let viewpage = (item) => {
 		console.log(item);
+		location.href="/bbs/free/"+item.getAttribute("data-uid");
 	}

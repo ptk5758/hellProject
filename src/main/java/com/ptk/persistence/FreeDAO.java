@@ -30,5 +30,9 @@ public class FreeDAO implements CommunityDAO{
 		return sqlSession.selectList(NAMESPACE+".getFreevoList");
 	}
 	
+	public FreeVO getFreeItem(Integer uid) {
+		return sqlSession.selectOne(NAMESPACE+".getFreeVO", uid);
+	}
+	
 
 }
