@@ -11,7 +11,7 @@
 			alert("로그인 후에 이용하실수 있습니다.");
 			return;
 		}
-		let myfile = document.getElementById('myimg').files[0];
+		let myfile = document.getElementById('myfile').files[0];
 		myfile ? myfile=myfile:myfile=null;
 		console.log(myfile);
 		let formData = new FormData();
@@ -37,3 +37,47 @@
 		}
 		
 	}
+	
+	
+	let showimg = (e) => {
+		e.preventDefault();
+		let reader = new FileReader();
+		reader.readAsDataURL(e.target.files[0]);
+		reader.onload = (readevent) => {
+			let filename = e.target.files[0].name;
+			let resultimg = document.getElementById('showimg');
+			resultimg.src = readevent.target.result;
+			document.getElementById('filetextresult').innerHTML = `
+				<label for="myfile" id="fileupbutton">파일첨부</label>
+				<span>${filename}</span>
+			`; 
+		}
+		
+	}
+	
+	let dragdrop = (e) => {
+		e.preventDefault();
+	}
+	let dragover = (e) => {
+		e.preventDefault();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

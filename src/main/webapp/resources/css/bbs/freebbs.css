@@ -106,12 +106,104 @@
 .freeBoardSearchOption button {
 	font-size: 20px;
 }
+/* ------------------업로드-----------------  */
 
+.freePosting{
+	width: 90%;
+	margin: 0 auto;
+	background-color: #fff;
+}
+.freePosting_title{
+	font-size: 24px;
+	font-weight: bold;	
+	padding: 1.2em;
+}
+.freePostingBorder{
+	display: flex;
+	flex-direction: column;
+}
+.freePosting_Item{
+	padding: 0.7em;
+	display: flex;
+	border: 1px solid#000000;
+}
+.freePosting_Item div {
+	margin: 0.6em;
+}
+.freePosting_Item > div {
+	font-size: 20px;
+	font-weight: bold;
+}
+.freePosting_text{
+	align-self: center;
+	width: 8%;
+	text-align: center;
+}
+.freePosting_value{
+	display: flex;
+	justify-content: center;
+	width: 60%;
+}
+.freePosting_value > input {
+	width: 100%;
+}
+.freePosting_status{
+	width: 80%;
+}
+.freePosting_status span {
+	margin: 0.3em;
+}
 
+#freePosting_content{
+	width: 100%;
+	min-height: 300px;
+	padding: 0.6em;
+	font-size: 20px;
+}
 
-
-
-
+#myfile{
+	display: none;
+}
+.freePosting_fileupload{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#fileupbutton{
+	border: 1px solid#000000;
+	cursor: pointer;
+	padding: 0.3em;
+	border-radius: 13px;
+}
+#fileupbutton:hover{
+	background-color: #eee;
+}
+#filetextresult{
+	display: flex;
+	align-items: center;
+}
+#filetextresult > span {
+	margin-left: 1.5em;
+}
+.freePosting_fileupload > div {
+	display: flex;
+}
+.freePosting_fileupload img {
+	max-width: 150px;
+	max-height: 150px;
+}
+#freePosting_submitButton{
+	width: 60%;
+	padding: 0.4em;
+	font-size: 22px;
+	font-weight: bold;
+	border-radius: 12px;
+	background-color: #606060;
+	border: 0px solid#000000;
+	color: #fff;
+	cursor: pointer;
+}
 
 
 
