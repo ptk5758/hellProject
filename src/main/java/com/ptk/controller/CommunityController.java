@@ -1,10 +1,12 @@
 package com.ptk.controller;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,10 +17,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ptk.domain.Community;
 import com.ptk.domain.FreeVO;
 import com.ptk.domain.NoticeVO;
+import com.ptk.persistence.CommunityDAO;
 
 @Controller
 @RequestMapping("/bbs/")
 public class CommunityController {
+	
+	@Inject
+	private CommunityDAO dao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(CommunityController.class);
 	
@@ -39,7 +45,7 @@ public class CommunityController {
 	
 	
 	@RequestMapping(value = "/free", method = RequestMethod.GET)
-	public String freebbsPage() {
+	public String freebbsPage() {		
 		return "/bbs/free/free";
 	}
 	

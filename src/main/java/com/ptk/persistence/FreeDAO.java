@@ -1,5 +1,7 @@
 package com.ptk.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,6 +19,10 @@ public class FreeDAO implements CommunityDAO{
 	
 	public void FreebbsPosting(FreeVO vo) {
 		sqlSession.insert(NAMESPACE+".bbsinsert", vo);
+	}
+	
+	public List<FreeVO> getList() {
+		return sqlSession.selectList(NAMESPACE+".getFreevoList");
 	}
 	
 

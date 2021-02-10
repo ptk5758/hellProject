@@ -1,1 +1,48 @@
 @charset "UTF-8";
+
+/* free 자유게시판 css */
+
+.freeMain{
+	width: 90%;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 0.8em;
+	width: 80%;
+}
+.freeBoard{
+	display: flex;
+	flex-direction: column;
+}
+.freeBoardList{
+	display: flex;
+	justify-content: center;
+	padding: 0.8em;
+	margin: 0.3em;
+	border-top: 1px solid#000000;
+	border-bottom: 1px solid#000000;
+}
+.listtop div {
+	font-weight: bold;
+	font-size: 20px;
+}
+.freeBoardList div {
+	text-align: center;
+}
+.freeBoardList_Num{
+	width: 5%;
+}
+.freeBoardList_Subject{
+	width: 38%;
+}
+.freeBoardList_Date{
+	width: 15%;
+}
+.freeBoardList_User{
+	width: 15%;
+}
+.freeBoardList_Ref{
+	width: 8%;
+}
+.freeBoardList_Like{
+	width: 8%;
+}

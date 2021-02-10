@@ -13,15 +13,12 @@ public class FileUpload {
 	private MultipartFile file;
 	private String fileName;
 	
-	@Resource(name = "uploadPath")
-	private String uploadPath;
-	
-	public FileUpload(MultipartFile file) {
+	public FileUpload(MultipartFile file, String uploadPath) {
+		try {
 		UUID uid = UUID.randomUUID();
 		this.fileName = uid.toString()+"_"+file.getOriginalFilename();
-		File target = new File(uploadPath, this.fileName);
-		try {
-			FileCopyUtils.copy(file.getBytes(), target);
+		File target = new File(uploadPath, this.fileName);		
+		FileCopyUtils.copy(file.getBytes(), target);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

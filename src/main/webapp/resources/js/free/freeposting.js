@@ -26,4 +26,14 @@
 		xhp.open("POST", "/apifree/Posting", true);
 		xhp.send(formData);
 		
+		xhp.onreadystatechange = () => {
+			if(xhp.status === 200 && xhp.readyState === 4){
+				let jsonData = JSON.parse(xhp.responseText);
+				if(jsonData.msg === "성공"){
+					alert(jsonData.comment);
+					location.href="/";
+				}
+			}
+		}
+		
 	}
