@@ -42,6 +42,8 @@
 	let showimg = (e) => {
 		e.preventDefault();
 		let reader = new FileReader();
+		console.log(e);
+		console.log(e.target.files[0]);
 		reader.readAsDataURL(e.target.files[0]);
 		reader.onload = (readevent) => {
 			let filename = e.target.files[0].name;

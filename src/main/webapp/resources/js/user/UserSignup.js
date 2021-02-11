@@ -20,12 +20,13 @@
 		if(email2 == "write"){
 			email = email1;
 		}
-		for(let index of document.querySelectorAll('input')){
+		console.log(document.querySelectorAll('input'));
+		/*for(let index of document.querySelectorAll('input')){
 			if(index.value === "" || index.value == null){
 				alert(index.placeholder+"을 입력하여 주세요");
 				return;
 			}
-		}
+		}*/
 		
 		let data = {
 			id: id,
