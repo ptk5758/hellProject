@@ -28,10 +28,11 @@ nav{
 nav > div {
 	width: 15%;
 	text-align: center;
+	cursor: pointer;
 }
 
 /* ----------------------헤더 로그인 메뉴------------------------ */
-input[type="checkbox"]{
+#menu[type="checkbox"]{
 	display: none;
 }
 .menuButton{

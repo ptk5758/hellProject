@@ -11,14 +11,14 @@
 		let age = document.getElementById('age').value;
 		let gender = document.querySelector('input[id="gender"]:checked').value;
 		
-		let docinput = document.querySelectorAll('input');
+		/*let docinput = document.querySelectorAll('input');
 		
 		for(let i of docinput) {
 			if(i.value === "" || i.value == null){
 				alert(`${i.placeholder} 를 입력하여주세요`);
 				return;
 			}
-		}
+		}*/
 		
 		let data = {weight:weight, height:height, age:age, gender:gender, user:sessionStorage.getItem("sessionNickName") == null ? "게스트":'sessionStorage.getItem("sessionNickName")'}
 		

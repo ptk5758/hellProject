@@ -22,6 +22,10 @@
 			</div>
 			<div class="viewBoard_contentBoard">대충 내용</div>
 		</div>
+		<div class="viewBoard_likeBoard">
+			<input type="checkbox" id="likecheck">
+			<label id="likebutton" for="likecheck">좋아요</label>
+		</div>
 	</div>	
 	<script src="/js/free/freeview.js?ver=1"></script>
 	<script>

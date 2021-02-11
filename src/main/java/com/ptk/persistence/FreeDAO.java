@@ -34,5 +34,9 @@ public class FreeDAO implements CommunityDAO{
 		return sqlSession.selectOne(NAMESPACE+".getFreeVO", uid);
 	}
 	
+	public void refUpdate(Integer uid) {
+		sqlSession.update(NAMESPACE+".refUpdate", uid);
+	}
+	
 
 }

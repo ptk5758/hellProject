@@ -16,7 +16,7 @@
 				<div class="bbsmain_Item_Lists_list">4.규칙을준수합시다</div>
 			</div>
 		</div>
-		<div class="bbsmain_Item" id="free">
+		<div class="bbsmain_Item" id="free" onclick="goboard(this)">
 			<div class="bbsmain_Item_Title">
 				<div class="bbsmain_Item_Title_Text">자유게시판</div>
 				<div class="bbsmain_Item_Title_Img"><img src="/img/re.png"></div>
@@ -42,7 +42,7 @@
 		</div>
 		<div class="bbsmain_Item">
 			<div class="bbsmain_Item_Title">
-				<div class="bbsmain_Item_Title_Text">공지사항</div>
+				<div class="bbsmain_Item_Title_Text">질문답변 게시판</div>
 				<div class="bbsmain_Item_Title_Img"><img src="/img/re.png"></div>
 			</div>
 			<div class="bbsmain_Item_Lists">
@@ -60,5 +60,6 @@
 		<div onclick="location.href='/bbs/free'">3.자유게시판</div>
 		<div>4.질문답변</div>
 	</div> -->
+	<script src="/js/bbsmain.js?ver=1"></script>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 

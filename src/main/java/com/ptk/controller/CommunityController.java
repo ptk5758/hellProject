@@ -29,6 +29,9 @@ public class CommunityController {
 	@Inject
 	private CommunityDAO dao;
 	
+	@Inject
+	private FreeDAO freedao;
+	
 	private static final Logger logger = LoggerFactory.getLogger(CommunityController.class);
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -62,6 +65,7 @@ public class CommunityController {
 		
 		//APIFree api = new APIFree();		
 		//logger.info(api.getFreeVO(uid));
+		freedao.refUpdate(uid);
 		
 		model.addAttribute("uid", uid);
 		return "/bbs/free/view";

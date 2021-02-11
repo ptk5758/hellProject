@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<div onclick="location.href='/BMI'">로고</div>
+		<div onclick="location.href='/'">메인화면</div>
 		<div>
 			<input type="checkbox" id="menu">
 			<label class="menuButton" for="menu">메뉴</label>

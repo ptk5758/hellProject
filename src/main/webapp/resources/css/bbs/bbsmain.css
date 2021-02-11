@@ -20,6 +20,10 @@
 	margin: 0 auto;
 	margin-bottom: 1em;
 	margin-top: 1em;
+	cursor: pointer;
+}
+.bbsmain_Item:hover{
+	background-color: #e1e1e1;
 }
 .bbsmain_Item > div {
 }

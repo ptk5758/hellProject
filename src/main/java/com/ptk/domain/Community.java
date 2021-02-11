@@ -10,7 +10,10 @@ public class Community implements Communication{
 	public String uploadDate;
 	public String ip;
 	public int ref;
+	public int likestack;
 	
+
+
 	public String getJSONString() {
 		String result;
 		result = "{";
@@ -21,9 +24,18 @@ public class Community implements Communication{
 		result += "\"img\":\""+this.img+"\",";
 		result += "\"uploadDate\":\""+this.uploadDate+"\",";
 		result += "\"ip\":\""+this.ip+"\",";
+		result += "\"likestack\":\""+this.likestack+"\",";
 		result += "\"ref\":\""+this.ref+"\"";
 		result += "}";		
 		return  result;
+	}
+	
+	public int getLikestack() {
+		return likestack;
+	}
+
+	public void setLikestack(int likestack) {
+		this.likestack = likestack;
 	}
 
 	public int getUid() {

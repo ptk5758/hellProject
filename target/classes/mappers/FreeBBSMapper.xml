@@ -15,4 +15,7 @@
 	<select id="getFreeVO" resultType="FreeVO">
 		select * from free where uid=#{uid}
 	</select>
+	<select id="refUpdate">
+		update free set ref= ref+1 where uid=#{uid}
+	</select>
 </mapper>
