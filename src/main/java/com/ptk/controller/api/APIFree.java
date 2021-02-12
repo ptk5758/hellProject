@@ -92,7 +92,7 @@ public class APIFree {
 			int totalcount = list.size();
 			option.setTotallist(totalcount);
 			PageManager pmg = new PageManager(option);
-			result = "{\"list\":[";			
+			result = "{\"count\":\""+list.size()+"\",\"list\":[";			
 			for(int i=0; i<list.size(); i++) {
 				FreeVO vo = list.get(i);
 				result += vo.getJSONString();
@@ -103,8 +103,6 @@ public class APIFree {
 				}
 			}
 			result += "\"page\":"+option.getJSONString()+"}";
-			logger.info(list.get(0).getJSONString());
-			logger.info(list.size()+"<<<<<<<<<<<<");
 		}
 		
 		

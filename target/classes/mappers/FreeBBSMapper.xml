@@ -28,7 +28,7 @@
 		delete from freeBoardLike where boardUID=#{boardUID} and userID=#{userID}
 	</delete>
 	<select id="getFreeVOSearch" resultType="FreeVO">
-	<!-- select free.*, count(boardUID) AS likestack from free LEFT JOIN freeBoardLike ON free.UID = freeBoardLike.boardUID where #{title} LIKE CONCAT('%',#{value},'%') group by UID; -->		
-		select * from free where subject LIKE CONCAT('%',#{inputvalue},'%')
+		select free.*, count(boardUID) AS likestack from free LEFT JOIN freeBoardLike ON free.UID = freeBoardLike.boardUID where subject LIKE CONCAT('%',#{inputvalue},'%') group by UID;		
+	<!-- select * from free where subject LIKE CONCAT('%',#{inputvalue},'%') -->
 	</select>
 </mapper>
