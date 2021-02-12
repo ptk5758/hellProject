@@ -54,11 +54,12 @@ public class FreeDAO implements CommunityDAO{
 	}
 	
 	public List<FreeVO> getFreeVOSearch(SearchVO search) {
-		System.out.println(search.getSelecttitle());
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("selecttitle", search.getSelecttitle());
-		map.put("inputvalue", search.getInputvalue());
-		return sqlSession.selectList(NAMESPACE+".getFreeVOSearch", map);
+		/*
+		 * Map<String, Object> map = new HashMap<String, Object>();
+		 * map.put("selecttitle", search.getSelecttitle()); map.put("inputvalue",
+		 * search.getInputvalue());
+		 */
+		return sqlSession.selectList(NAMESPACE+".getFreeVOSearch", search);
 	}
 	
 

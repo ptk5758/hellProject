@@ -14,8 +14,7 @@
 		}
 	});
 	
-	promise.then((data) => {
-		console.log(data);		
+	promise.then((data) => {		
 		let freeBoard = document.getElementById('freeBoard');
 		let totalcount = data.count;
 		let result = "";		
@@ -36,7 +35,6 @@
 		freeBoard.innerHTML += result;		
 		return data.page;
 	}).then((page) => {
-		console.log(page);
 		let pageButtnEle = document.getElementById('freeBoardPage');
 		let i = 1;
 		let result = ``;
@@ -51,11 +49,9 @@
 		let nowpage = page.nowpage;
 		let nowpagebutton = document.querySelectorAll(`div[data-nowpage="${nowpage}"]`)[0];
 		nowpagebutton.style.color = "red";
-		console.log(nowpagebutton);
 	});
 	
 	let viewpage = (item) => {
-		console.log(item);
 		location.href="/bbs/free/"+item.getAttribute("data-uid");
 	}
 	
@@ -66,7 +62,7 @@
 		let promise = new Promise((resolve, reject) => {
 			
 			let xhp = new XMLHttpRequest();
-			xhp.open("GET", `/apifree/GetList?selecttitle=${title}&inputvalue=${value}`, true);
+			xhp.open("GET", `/apifree/GetList?selecttitle=${title}&inputvalue=${value}&nowpage=1`, true);
 			xhp.send(null);		
 			
 			xhp.onreadystatechange = () => {
@@ -128,7 +124,71 @@
 			
 	}
 	
-	
+	let viewthispage = (item) => {
+		let nowpage = item.getAttribute("data-nowpage");
+		let title = "subject";
+		let value = "";
+		let promise = new Promise((resolve, reject) => {
+			
+			let xhp = new XMLHttpRequest();
+			xhp.open("GET", `/apifree/GetList?selecttitle=${title}&inputvalue=${value}&nowpage=${nowpage}`, true);
+			xhp.send(null);		
+			
+			xhp.onreadystatechange = () => {
+				if(xhp.status === 200 && xhp.readyState === 4){
+					resolve(JSON.parse(xhp.responseText));					
+				}
+			}
+			
+			
+		});
+		
+		promise.then((data) => {		
+		let freeBoard = document.getElementById('freeBoard');
+		let totalcount = data.count;
+		let showcount = parseInt(totalcount) - ((parseInt(data.page.page.nowpage)-1) * parseInt(data.page.page.pagecut));		
+		let result = `
+			<div class="freeBoardList listtop">
+				<div class="freeBoardList_Num">No</div>
+				<div class="freeBoardList_Subject">제목</div>
+				<div class="freeBoardList_User">유저</div>
+				<div class="freeBoardList_Date">날짜</div>				
+				<div class="freeBoardList_Ref">조회수</div>
+				<div class="freeBoardList_Like">추천</div>
+			</div>`;		
+		for(let item of data.list){
+			result += `
+			<div class="freeBoardList">
+				<div class="freeBoardList_Num">${showcount}</div>
+				<div class="freeBoardList_Subject" data-uid="${item.uid}" onclick="viewpage(this)">${item.subject}</div>				
+				<div class="freeBoardList_User">${item.user}</div>
+				<div class="freeBoardList_Date">${item.uploadDate}</div>
+				<div class="freeBoardList_Ref">${item.ref}</div>
+				<div class="freeBoardList_Like">${item.likestack}</div>
+			</div>
+		`;
+		showcount--;
+		}
+			
+		freeBoard.innerHTML = result;		
+		return data.page.page;
+		}).then((page) => {
+			let pageButtnEle = document.getElementById('freeBoardPage');
+			let i = 1;
+			let result = ``;
+			for(i; i<=page.totalpage; i++){
+				result += `
+					<div onclick="viewthispage(this)" data-nowpage="${i}">${i}</div>
+				`;
+			}
+			pageButtnEle.innerHTML = result;
+			return page;
+		}).then((page) => {
+			let nowpage = page.nowpage;
+			let nowpagebutton = document.querySelectorAll(`div[data-nowpage="${nowpage}"]`)[0];
+			nowpagebutton.style.color = "red";
+		});
+	}
 	
 	
 	

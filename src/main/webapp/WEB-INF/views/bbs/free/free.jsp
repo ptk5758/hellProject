@@ -17,7 +17,7 @@
 		</div>
 		<div class="freeBoardSearchOption">
 			<div class="freeBoard_refresh">
-				<img src="/img/re.png">
+				<img src="/img/re.png" onclick="location.reload()">
 			</div>
 			<div class="freeBoard_select">
 				<select name="title">

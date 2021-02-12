@@ -7,7 +7,7 @@
 		insert into free (user,subject,content,ip,img) values (#{user},#{subject},#{content},#{ip},#{img})
 	</insert>
 	<select id="getFreevoList" resultType="FreeVO">
-		select free.*, count(boardUID) AS likestack from free LEFT JOIN freeBoardLike ON free.UID = freeBoardLike.boardUID group by UID;
+		select free.*, count(boardUID) AS likestack from free LEFT JOIN freeBoardLike ON free.UID = freeBoardLike.boardUID group by UID limit 0,5
 	</select>
 	<select id="getTotalList" resultType="int">
 		select count(*) from free
@@ -28,7 +28,7 @@
 		delete from freeBoardLike where boardUID=#{boardUID} and userID=#{userID}
 	</delete>
 	<select id="getFreeVOSearch" resultType="FreeVO">
-		select free.*, count(boardUID) AS likestack from free LEFT JOIN freeBoardLike ON free.UID = freeBoardLike.boardUID where subject LIKE CONCAT('%',#{inputvalue},'%') group by UID;		
+		select free.*, count(boardUID) AS likestack from free LEFT JOIN freeBoardLike ON free.UID = freeBoardLike.boardUID where subject LIKE CONCAT('%',#{inputvalue},'%') group by UID limit #{limitstart},#{pagecut}	
 	<!-- select * from free where subject LIKE CONCAT('%',#{inputvalue},'%') -->
 	</select>
 </mapper>

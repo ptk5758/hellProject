@@ -79,9 +79,12 @@ public class APIFree {
 		return result;
 	}
 	
-	@RequestMapping(value = "/GetList", method = RequestMethod.GET, produces = "application/text; charset=UTF-8",params = {"selecttitle","inputvalue"})
+	@RequestMapping(value = "/GetList", method = RequestMethod.GET, produces = "application/text; charset=UTF-8",params = {"selecttitle","inputvalue","nowpage"})
 	public String getFreeList(SearchVO option) {
 		logger.info(option.getJSONString());
+		int totalcount = getTotalList();
+		option.setTotallist(totalcount);
+		PageManager pmg = new PageManager(option);
 		String result;
 		List<FreeVO> list = dao.getFreeVOSearch(option);
 		if(list.isEmpty()) {			
@@ -89,10 +92,8 @@ public class APIFree {
 			logger.info("없음");
 			result = "{\"count\":\"0\"}";
 		} else {
-			int totalcount = list.size();
-			option.setTotallist(totalcount);
-			PageManager pmg = new PageManager(option);
-			result = "{\"count\":\""+list.size()+"\",\"list\":[";			
+			
+			result = "{\"count\":\""+totalcount+"\",\"list\":[";			
 			for(int i=0; i<list.size(); i++) {
 				FreeVO vo = list.get(i);
 				result += vo.getJSONString();
