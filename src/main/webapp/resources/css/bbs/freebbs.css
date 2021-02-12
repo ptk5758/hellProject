@@ -232,21 +232,22 @@
 	margin: 0.2em;
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 }
 .bold{
 	font-weight: bold;
 }
 .viewBoard_itenInfo_user{
-	width: 11%;
+	width: 18%;
 }
 .viewBoard_itenInfo_user > div {
 	font-weight: bold;
 }
 .viewBoard_itenInfo_ref{
-	width: 11%;
+	width: 13%;
 }
 .viewBoard_itenInfo_like{
-	width: 11%;
+	width: 13%;
 }
 .viewBoard_contentBoard{
 	display: flex;

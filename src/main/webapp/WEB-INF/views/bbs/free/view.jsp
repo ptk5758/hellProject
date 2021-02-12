@@ -23,7 +23,7 @@
 			<div class="viewBoard_contentBoard">대충 내용</div>
 		</div>
 		<div class="viewBoard_likeBoard">
-			<input type="checkbox" id="likecheck">
+			<input type="checkbox" id="likecheck" value="${uid}">
 			<label id="likebutton" for="likecheck">좋아요</label>
 		</div>
 	</div>	

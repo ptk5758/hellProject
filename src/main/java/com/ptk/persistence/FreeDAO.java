@@ -1,6 +1,7 @@
 package com.ptk.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -36,6 +37,18 @@ public class FreeDAO implements CommunityDAO{
 	
 	public void refUpdate(Integer uid) {
 		sqlSession.update(NAMESPACE+".refUpdate", uid);
+	}
+	
+	public void likeDo(FreeVO vo) {
+		sqlSession.insert(NAMESPACE+".likeDo", vo);
+	}
+	
+	public boolean getLikeValue(Map<String, Object> map) {
+		return sqlSession.selectOne(NAMESPACE+".getLikeValue", map);
+	}
+	
+	public void likeDelete(Map<String, Object> map) {
+		sqlSession.delete(NAMESPACE+".likedelete", map);
 	}
 	
 

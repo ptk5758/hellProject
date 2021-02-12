@@ -13,9 +13,18 @@
 		select count(*) from free
 	</select>
 	<select id="getFreeVO" resultType="FreeVO">
-		select * from free where uid=#{uid}
+		select free.*, count(*) AS likestack from free LEFT JOIN freeBoardLike on free.UID = freeBoardLike.boardUID where uid=#{uid};
 	</select>
 	<select id="refUpdate">
 		update free set ref= ref+1 where uid=#{uid}
 	</select>
+	<insert id="likeDo">
+		insert into freeBoardLike (boardUID,userID) values (#{uid},#{user});
+	</insert>
+	<select id="getLikeValue" resultType="boolean">
+		select if(count(*) >= 1 ,true,false) from freeBoardLike where boardUID=#{uid} and userID=#{user}
+	</select>
+	<delete id="likedelete">
+		delete from freeBoardLike where boardUID=#{boardUID} and userID=#{userID}
+	</delete>
 </mapper>

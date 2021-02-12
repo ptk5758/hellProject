@@ -1,12 +1,17 @@
 package com.ptk.controller.api;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,11 +81,44 @@ public class APIFree {
 	@RequestMapping(value = "/GetFreeVO", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public String getFreeVO(@RequestParam(value = "uid", required = false) Integer uid) {
 		String result;
-		logger.info(uid+"<<<<<<<<<<<<<<<<<<<");
 		FreeVO vo = dao.getFreeItem(uid);
-		logger.info(vo.getJSONString());
 		result = vo.getJSONString();
 		return result;
+	}
+	
+	@PostMapping(value = "/Likedo", produces = "application/text; charset=UTF-8")
+	public String likedo(FreeVO vo) {
+		String result;
+		
+		logger.info(vo.getJSONString());
+		try {
+			dao.likeDo(vo);			
+		} catch (Exception e) {
+			result = "{\"msg\":\"실패\"}";
+		}		
+		result = "{\"msg\":\"성공\"}";		
+		return result;
+	}
+	
+	@GetMapping(value = "/GetLikeValue", produces = "application/text; charset=UTF-8")
+	public String getLikeValue(@RequestParam("user") String user, @RequestParam("uid") Integer uid) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user", user);
+		map.put("uid", uid);		
+		
+		String result;
+		result = "{\"value\": "+dao.getLikeValue(map)+"}";
+		return result;
+	}
+	
+	@DeleteMapping(value = "/LikeDelete")
+	public String likeDelete(FreeVO vo) {
+		logger.info(vo.getJSONString());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userID", vo.getUser());
+		map.put("boardUID", vo.getUid());
+		dao.likeDelete(map);
+		return "";
 	}
 	
 	
