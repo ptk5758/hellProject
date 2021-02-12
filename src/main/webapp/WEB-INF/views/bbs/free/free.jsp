@@ -20,17 +20,17 @@
 				<img src="/img/re.png">
 			</div>
 			<div class="freeBoard_select">
-				<select>
-					<option>제목</option>
-					<option>글쓴이</option>
-					<option>내용</option>
+				<select name="title">
+					<option value="subject">제목</option>
+					<option value="user">글쓴이</option>
+					<option value="content">내용</option>
 				</select>
 			</div>
 			<div class="freeBoard_input">
-				<input>
+				<input name="value">
 			</div>
 			<div class="freeBoard_searchbutton">
-				<button>검색</button>
+				<button onclick="searchdo()">검색</button>
 			</div>
 			<div class="freeBoard_postingbutton">
 				<button onclick="location.href='/bbs/free/posting'">글작성하기</button>

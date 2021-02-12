@@ -22,6 +22,7 @@ import com.ptk.domain.FileUpload;
 import com.ptk.domain.FreeVO;
 import com.ptk.domain.PageManager;
 import com.ptk.domain.PageVO;
+import com.ptk.domain.SearchVO;
 import com.ptk.persistence.FreeDAO;
 
 @RestController
@@ -77,6 +78,40 @@ public class APIFree {
 		//logger.info(result);
 		return result;
 	}
+	
+	@RequestMapping(value = "/GetList", method = RequestMethod.GET, produces = "application/text; charset=UTF-8",params = {"selecttitle","inputvalue"})
+	public String getFreeList(SearchVO option) {
+		logger.info(option.getJSONString());
+		String result;
+		List<FreeVO> list = dao.getFreeVOSearch(option);
+		if(list.isEmpty()) {			
+			logger.info(list.size()+"<<<<<<<<<<<<");
+			logger.info("없음");
+			result = "{\"count\":\"0\"}";
+		} else {
+			int totalcount = list.size();
+			option.setTotallist(totalcount);
+			PageManager pmg = new PageManager(option);
+			result = "{\"list\":[";			
+			for(int i=0; i<list.size(); i++) {
+				FreeVO vo = list.get(i);
+				result += vo.getJSONString();
+				if(i+1 == list.size()) {
+					result += "],";
+				} else {
+					result += ",";
+				}
+			}
+			result += "\"page\":"+option.getJSONString()+"}";
+			logger.info(list.get(0).getJSONString());
+			logger.info(list.size()+"<<<<<<<<<<<<");
+		}
+		
+		
+		
+		return result;
+	}
+	
 	
 	@RequestMapping(value = "/GetFreeVO", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public String getFreeVO(@RequestParam(value = "uid", required = false) Integer uid) {

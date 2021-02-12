@@ -27,7 +27,7 @@
 				<div class="freeBoardList_User">${item.user}</div>
 				<div class="freeBoardList_Date">${item.uploadDate}</div>
 				<div class="freeBoardList_Ref">${item.ref}</div>
-				<div class="freeBoardList_Like">1</div>
+				<div class="freeBoardList_Like">${item.likestack}</div>
 			</div>
 		`;
 		totalcount--;
@@ -58,3 +58,44 @@
 		console.log(item);
 		location.href="/bbs/free/"+item.getAttribute("data-uid");
 	}
+	
+	let searchdo = () => {
+		let title = document.querySelector('select[name="title"]').value;
+		let value = document.querySelector('input[name="value"]').value;
+		
+		let promise = new Promise((resolve, reject) => {
+			
+			let xhp = new XMLHttpRequest();
+			xhp.open("GET", `/apifree/GetList?selecttitle=${title}&inputvalue=${value}`, true);
+			xhp.send(null);		
+			
+			xhp.onreadystatechange = () => {
+				if(xhp.status === 200 && xhp.readyState === 4){
+					resolve(JSON.parse(xhp.responseText));					
+				}
+			}
+			
+			
+		});
+		
+		promise.then((value) => {
+			console.log(value);
+		});
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

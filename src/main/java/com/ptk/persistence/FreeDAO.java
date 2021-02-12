@@ -1,5 +1,6 @@
 package com.ptk.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.ptk.domain.FreeVO;
+import com.ptk.domain.SearchVO;
 
 @Repository
 public class FreeDAO implements CommunityDAO{
@@ -49,6 +51,14 @@ public class FreeDAO implements CommunityDAO{
 	
 	public void likeDelete(Map<String, Object> map) {
 		sqlSession.delete(NAMESPACE+".likedelete", map);
+	}
+	
+	public List<FreeVO> getFreeVOSearch(SearchVO search) {
+		System.out.println(search.getSelecttitle());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("selecttitle", search.getSelecttitle());
+		map.put("inputvalue", search.getInputvalue());
+		return sqlSession.selectList(NAMESPACE+".getFreeVOSearch", map);
 	}
 	
 
